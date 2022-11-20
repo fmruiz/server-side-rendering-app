@@ -1,16 +1,16 @@
 const express = require('express');
 const React = require('react');
-const renderToString = 'react-dom/server'.renderToString;
-const Home = require('./client/components/Home').default;
+const renderToString = require('react-dom/server').renderToString;
+const App = require('./client/App').default;
 
 /**
  * Express initialization
  */
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8081;
 
 app.get('/', (req, res) => {
-    const content = renderToString(<Home />);
+    const content = renderToString(<App />);
 
     res.send(content);
 });
