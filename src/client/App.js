@@ -5,6 +5,7 @@ const App = () => {
     return (
         <div>
             <Home />
+            <button onClick={() => console.log('xxx')}>ss</button>
         </div>
     );
 };
