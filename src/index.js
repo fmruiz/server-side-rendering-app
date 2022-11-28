@@ -12,8 +12,8 @@ const port = process.env.PORT || 8081;
  */
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.send(renderer());
+app.get('*', (req, res) => {
+    res.send(renderer(req));
 });
 
 /**
