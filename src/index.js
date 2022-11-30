@@ -1,5 +1,6 @@
 import express from 'express';
 import renderer from './helpers/renderer';
+import createStore from './helpers/createStore';
 
 /**
  * Express initialization
@@ -13,7 +14,9 @@ const port = process.env.PORT || 8081;
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
-    res.send(renderer(req));
+    const store = createStore();
+
+    res.send(renderer(req, store));
 });
 
 /**
