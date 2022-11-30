@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../../actions';
 
@@ -18,6 +19,10 @@ const UsersList = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Users App</title>
+                <meta property="og:title" content="Users App" />
+            </Helmet>
             <ul>{renderUserList()}</ul>
         </div>
     );
