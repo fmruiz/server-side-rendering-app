@@ -1,0 +1,26 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../../actions';
+
+const UsersList = () => {
+    const dispatch = useDispatch();
+    const users = useSelector((state) => state.users);
+
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
+
+    const renderUserList = () => {
+        return users?.map((user) => {
+            return <li key={user.id}>{user.name}</li>;
+        });
+    };
+
+    return (
+        <div>
+            <ul>{renderUserList()}</ul>
+        </div>
+    );
+};
+
+export default UsersList;
